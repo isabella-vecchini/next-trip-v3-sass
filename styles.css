@@ -1,0 +1,36 @@
+/* CSS RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ul {
+    text-decoration: none;
+    display: flex;
+}
+
+.plane-pic {
+max-width: 80vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-between
+}
+
+nav{
+    display: flex;
+    justify-content: space-between
+}
+
+
