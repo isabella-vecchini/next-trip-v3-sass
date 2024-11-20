@@ -8,7 +8,7 @@
 
 
 .plane-pic {
-    max-width: 100%;
+    max-width: 100vw;
     height: auto;
 }
 
@@ -41,4 +41,4 @@ h3 {
     font-size: 20px;
 }
 
-
+.navbar {background-color: aliceblue}
