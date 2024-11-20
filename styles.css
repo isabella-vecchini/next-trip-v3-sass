@@ -4,6 +4,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+} */
+
+
+.plane-pic {
+    max-width: 100%;
+    height: auto;
+}
+
+/* removing some of the default styling and chanding the typography and text styles*/
+
+a {color: #0d00ff;
+    font-style: normal;
+}
+
+ul {
+    list-style-type: none;
 }
 
 body {
@@ -11,26 +27,18 @@ body {
 }
 
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #202020;
+    font-size: 32px;
 }
 
-ul {
-    text-decoration: none;
-    display: flex;
+h2 {
+    color: #202020;
+    font-size: 24px;
 }
 
-.plane-pic {
-max-width: 80vw;
-}
-
-header {
-    display: flex;
-    justify-content: space-between
-}
-
-nav{
-    display: flex;
-    justify-content: space-between
+h3 {
+    color: #202020;
+    font-size: 20px;
 }
 
 
