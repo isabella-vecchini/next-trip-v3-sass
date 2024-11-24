@@ -6,15 +6,13 @@
     box-sizing: border-box;
 } */
 
-
-.plane-pic {
-    max-width: 100vw;
-    height: auto;
-}
-
 /* removing some of the default styling and chanding the typography and text styles*/
 
-a {color: #0d00ff;
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+a {color: #5f5f5f;
     font-style: normal;
 }
 
@@ -22,23 +20,109 @@ ul {
     list-style-type: none;
 }
 
-body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 h1 {
-    color: #202020;
-    font-size: 32px;
+    color: #000000;
+    font-size: 36px;
 }
 
 h2 {
     color: #202020;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 h3 {
     color: #202020;
-    font-size: 20px;
+    font-size: 29px;
 }
 
-.navbar {background-color: aliceblue}
+.navbar {background-color: rgb(255, 255, 255)}
+
+.plane-pic {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* spacing sections and divs in the app features summary section */
+
+section {
+    margin-bottom: 56px;
+}
+
+#app-features-summary1 div {
+    margin-bottom: 56px;
+}
+
+
+#plane-pic {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    border-radius: 8px;
+}
+
+#hero-section {
+    overflow-x: hidden;
+}
+
+.mainCTA {
+    background: #0055ff;
+    border-radius: 32px;
+	color: #ffff;
+	border: none;
+	padding: 8px 24px;
+	font: inherit;
+    font-size: 28px;
+	cursor: pointer;
+	outline: inherit;
+}
+
+@media (min-width: 768px) {
+/*perchè non mi caghi?*/
+    .plane-pic {display: block}
+/*cagami, plis*/
+
+
+    #app-features-summary1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+                            "feature1 feature2 feature3"
+                            "feature4 feature5 feature5"
+    }
+
+    .feature1 {
+        grid-area: feature1;
+    }
+
+    .feature2 {
+        grid-area: feature2;
+    }
+
+    .feature3 {
+        grid-area: feature3;
+    }
+
+    .feature4 {
+        grid-area: feature4;
+    }
+
+    .feature5 {
+        grid-area: feature5;
+    }
+
+}
+
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
+    gap: 40px;
+    align-items: end;
+    list-style: none; /* removing bullets and other styles from the list elements */
+    padding: 0; /* removing default padding */
+}
+
+.footer-link {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Set link color */
+}
