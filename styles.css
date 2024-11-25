@@ -6,10 +6,13 @@
     box-sizing: border-box;
 } */
 
-/* removing some of the default styling and chanding the typography and text styles*/
+/* removing some of the default styling and chanGing the typography and text styles*/
 
 body {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {font-size: 18px;
 }
 
 a {color: #5f5f5f;
@@ -22,50 +25,44 @@ ul {
 
 h1 {
     color: #000000;
-    font-size: 36px;
+    font-size: 69px;
+    line-height: 1; /* Relative line spacing */
 }
 
 h2 {
     color: #202020;
-    font-size: 32px;
+    font-size: 55px;
 }
 
 h3 {
     color: #202020;
-    font-size: 29px;
+    font-size: 44px;
 }
 
 .navbar {background-color: rgb(255, 255, 255)}
 
-.plane-pic {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* spacing sections and divs in the app features summary section */
+/*spacing sections*/
 
 section {
     margin-bottom: 56px;
 }
 
-#app-features-summary1 div {
-    margin-bottom: 56px;
-}
-
+/*placing elements in the hero section*/
 
 #plane-pic {
-    max-width: 100%;
+    max-width: 99%;
     height: auto;
     margin-bottom: 24px;
     border-radius: 8px;
 }
 
-#hero-section {
-    overflow-x: hidden;
+.hero-text-container > * {
+    margin-bottom: 32px;
 }
 
+
 .mainCTA {
-    background: #0055ff;
+    background: #b76349;
     border-radius: 32px;
 	color: #ffff;
 	border: none;
@@ -76,19 +73,112 @@ section {
 	outline: inherit;
 }
 
+
+/*placing elements in the get the app section*/
+
+.app-illustration {
+    margin-bottom: 32px;
+}
+.download-app-button {
+    padding: 8px;
+}
+
+
+/*placing elements in the app features section*/
+
+#app-features-summary1 div {
+    margin-bottom: 56px;
+}
+
+
+/*placing elements in the footer with a grid*/
+
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
+    gap: 40px;
+    align-items: end;
+    padding: 0; /* removing default padding */
+}
+
+.footer-link {
+    text-decoration: none; /* removes the underline */
+    color: #333;
+}
+
+
+/* from tablets onwards - i've used the same breakpoint as the xxl container from bootstrap to keep in consistent*/
 @media (min-width: 768px) {
-/*perchè non mi caghi?*/
-    .plane-pic {display: block}
-/*cagami, plis*/
 
+    h1 {
+        color: #000000;
+        font-size: 90px;
+        line-height: 1; /* Relative line spacing */
+    }
+    
+    h2 {
+        color: #202020;
+        font-size: 67px;
+    }
+    
+    h3 {
+        color: #202020;
+        font-size: 50px;
+    }
+    
+/*hero section on larger screens is a grid*/
 
+    #hero-section {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 80px;
+        grid-template-areas: "hero-text-container plane-pic"
+    }
+
+    .hero-text-container {
+        grid-area: hero-text-container;
+        align-self: center;
+        }
+
+    .plane-pic {
+            grid-area: plane-pic;
+        }
+
+    h1 {font-size: 67px;}
+
+    #plane-pic {
+        grid-area: plane-pic;
+        justify-self: center;
+    }
+
+/*get the app section on larger screens is a grid*/
+
+    #get-the-app1 {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 48px;
+        justify-items: center;
+        grid-template-areas: "app-illustration text-and-app-buttons"
+    }
+    
+    .text-and-app-buttons {
+        grid-area: text-and-app-buttons;
+        align-self: center;
+        }
+    
+    .app-illustration {
+            grid-area: app-illustration;
+        }
+    
+/*app feature summart on larger screens is a grid*/
     #app-features-summary1 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+        gap: 48px;
         grid-template-areas:
                             "feature1 feature2 feature3"
-                            "feature4 feature5 feature5"
+                            "feature4 feature5 feature6"
     }
 
     .feature1 {
@@ -107,22 +197,8 @@ section {
         grid-area: feature4;
     }
 
-    .feature5 {
-        grid-area: feature5;
+    .feature6 {
+        grid-area: feature6;
     }
 
-}
-
-.footer-links-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
-    gap: 40px;
-    align-items: end;
-    list-style: none; /* removing bullets and other styles from the list elements */
-    padding: 0; /* removing default padding */
-}
-
-.footer-link {
-    text-decoration: none; /* Remove underline */
-    color: #333; /* Set link color */
 }
