@@ -12,6 +12,7 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
 p {font-size: 18px;
 }
 
@@ -60,36 +61,113 @@ section {
     margin-bottom: 32px;
 }
 
+/*buttons styling using the classes and BEM modifiers*/ 
 
-.mainCTA {
-    background: #b76349;
-    border-radius: 32px;
-	color: #ffff;
+.CTAbutton {
 	border: none;
-	padding: 8px 24px;
-	font: inherit;
-    font-size: 28px;
 	cursor: pointer;
-	outline: inherit;
+    background: none;
+}
+
+.CTAbutton--primary {
+    background: #b76349;
+    color: #ffff;
+    font-size: 28px;
+    border-radius: 32px;
+    padding: 8px 24px;
+	;   
 }
 
 
-/*placing elements in the get the app section*/
+.CTAbutton--secondary {
+    color: #2900bb;
+    text-decoration: underline;
+
+}
+
+/*placing elements in the get the app section with flexbox*/
+
+.get-the-app {
+    display: flex;
+    flex-direction: column; /* stacked elements in mobile*/
+    align-items: center;
+    text-align: center; /*includes centering the 2 buttons because they're considered text*/
+    gap: 24px; /* space between the picture and text/buttons */
+    padding: 16px;
+}
 
 .app-illustration {
-    margin-bottom: 32px;
+    max-width: 90%;
+    height: auto;
 }
+
+.text-and-app-buttons {
+    max-width: 400px;
+}
+
+.text-and-app-buttons h2 {
+    margin-bottom: 12px;
+}
+
+.text-and-app-buttons p {
+    margin-bottom: 16px;
+}
+
 .download-app-button {
-    padding: 8px;
+    max-width: 150px;
+    height: auto;
+    margin: 8px; /* adds spacing around buttons */
 }
 
+/*placing elements in the app features section with a grid (stacked)*/
 
-/*placing elements in the app features section*/
-
-#app-features-summary1 div {
+.app-features-summary div {
     margin-bottom: 56px;
 }
 
+.app-features-summary {
+    display: grid;
+    grid-template-columns: 1fr; /* stacks all items vertically*/
+    gap: 24px; /* Space between items */
+    padding: 16px;
+    margin: 0 auto; /* centers the content */
+}
+
+.feature {
+    background-color: #fdf4f1;
+    border: 1px solid #b76249;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature h2 {
+    margin-bottom: 12px;
+    color: #2900bb;
+}
+
+.feature h3 {
+    margin-bottom: 12px;
+    color: #2900bb;
+}
+
+.feature p {
+    color: #666;
+}
+
+
+/*styling the forms: log in page, sign up and contact us pages*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px; /* spacing elements */
+    max-width: 90%; /* limits form width */
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 
 /*placing elements in the footer with a grid*/
 
@@ -106,9 +184,18 @@ section {
     color: #333;
 }
 
+/*images resizing*/
+
+.picture-login-signup {
+    max-width: 95%;
+    height: auto;
+}
+
 
 /* from tablets onwards - i've used the same breakpoint as the xxl container from bootstrap to keep in consistent*/
 @media (min-width: 768px) {
+
+/*starting with increasing the font sizes*/
 
     h1 {
         color: #000000;
@@ -118,15 +205,15 @@ section {
     
     h2 {
         color: #202020;
-        font-size: 67px;
+        font-size: 56px;
     }
     
     h3 {
         color: #202020;
-        font-size: 50px;
+        font-size: 48px;
     }
     
-/*hero section on larger screens is a grid*/
+/*hero section on larger screens is a grid 50/50 split*/
 
     #hero-section {
         display: grid;
@@ -144,61 +231,50 @@ section {
             grid-area: plane-pic;
         }
 
-    h1 {font-size: 67px;}
-
     #plane-pic {
         grid-area: plane-pic;
         justify-self: center;
     }
 
-/*get the app section on larger screens is a grid*/
+/*adjusting the get the app flexbox for larger screens*/
 
-    #get-the-app1 {
-        display: grid;
-        grid-template-columns: 40% 60%;
-        gap: 48px;
-        justify-items: center;
-        grid-template-areas: "app-illustration text-and-app-buttons"
+    .get-the-app {
+        flex-direction: row; /* arranges elements side by side */
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        gap: 80px;
     }
-    
-    .text-and-app-buttons {
-        grid-area: text-and-app-buttons;
-        align-self: center;
-        }
-    
+
     .app-illustration {
-            grid-area: app-illustration;
-        }
-    
-/*app feature summart on larger screens is a grid*/
-    #app-features-summary1 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 48px;
-        grid-template-areas:
-                            "feature1 feature2 feature3"
-                            "feature4 feature5 feature6"
+        flex: 1; /* takes 50% of the space */
+        max-height: 560px;
+        width: auto;
+        object-fit: contain; /*this ensures the image box is 50% of the page BUT the image heigth is limited (it's too tall) while the width ratio is keps - so it doesn't stretch!*/
+        align-self: center;
     }
 
-    .feature1 {
-        grid-area: feature1;
+    .text-and-app-buttons {
+        flex: 1; /* takes the other 50% of the space */
+        max-width: 90%;
     }
 
-    .feature2 {
-        grid-area: feature2;
+    .text-and-app-buttons p {
+        margin-bottom: 24px;
     }
 
-    .feature3 {
-        grid-area: feature3;
+    .download-app-button {
+        max-width: 240px; /* icreasing size of the app download buttons */
     }
 
-    .feature4 {
-        grid-area: feature4;
-    }
 
-    .feature6 {
-        grid-area: feature6;
+/*adjusting the app features summary grid for larger screens*/
+
+    .app-features-summary {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number*/
+        gap: 32px; /* increases spacing for larger screens */
+        padding: 32px; /* more padding for wider layouts */
+        max-width: 1200px; /* limits the container width */
     }
 
 }
