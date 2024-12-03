@@ -1,31 +1,32 @@
 /* Variables for consistent styling */
 $font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-/* Colors */
-$primary-color: #b76349;
-$secondary-color: #2900bb;
-$text-color: #5f5f5f;
-$dark-gray: #333;
-$light-gray: #666;
-$color-black: #000000;
-$color-dark: #202020;
-$bg-light: #fdf4f1;
+/* Color Variables */
+$primary: #d18067;
+$primary-dark: #b16750;
+$primary-light: #f6f3f2;
 
-$spacing-small: 8px;
-$spacing-medium: 16px;
-$spacing-large: 24px;
-$spacing-xlarge: 56px;
+$secondary: #451ed2;
+$secondary-dark:#22009f;
 
-/* Mobile font sizes */
-$font-size-mobile-small: 18px;
-$font-size-mobile-medium: 28px;
-$font-size-mobile-large: 44px;
-$font-size-mobile-xlarge: 55px;
-$font-size-mobile-xxlarge: 69px;
+$grey: #666666; /* General text color */
+$dark-grey: #202020; /* For headings */
+$light-grey: #f5f5f5; /* Light grey background */
 
-/* Desktop font sizes */
-$font-size-desktop-small: 18px;
-$font-size-desktop-medium: 32px;
-$font-size-desktop-large: 48px;
-$font-size-desktop-xlarge: 56px;
-$font-size-desktop-xxlarge: 90px;
+/* Font Size Variables */
+$font-size-mobile-h1: 48px;
+$font-size-mobile-h2: 40px;
+$font-size-mobile-h3: 32px;
+$font-size-mobile-body: 16px;
+
+$font-size-desktop-h1: 64px;
+$font-size-desktop-h2: 56px;
+$font-size-desktop-h3: 40px;
+$font-size-desktop-body: 18px;
+
+/* Spacing Variables */
+$section-spacing: 56px;
+$gap-mobile: 24px;
+$gap-desktop: 32px;
+$padding-mobile: 16px;
+$padding-desktop: 32px;

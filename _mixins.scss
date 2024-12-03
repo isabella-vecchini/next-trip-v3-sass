@@ -1,0 +1,35 @@
+/*mixins*/
+
+/* the : with value means that, if the variable is not speicified, the default is applied*/
+@mixin text-style($size, $weight: normal, $color: inherit) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+  }
+ 
+/* buttons styling using pseudoclasses for states*/
+@mixin button(
+  $background: transparent, // Default to transparent for no background
+  $color: inherit,          // Default to inheriting text color
+  $padding: 8px 16px,       // Default padding
+  $border-radius: 4px,      // Default border radius
+  $font-size: 16px,         // Default font size
+  $text-decoration: none    // Default to no text decoration
+) {
+  border: none;
+  cursor: pointer;
+  background: $background;  // Valid background value
+  color: $color;            // Valid text color
+  font-size: $font-size;    // Font size for button text
+  border-radius: $border-radius; // Rounded corners
+  padding: $padding;        // Internal spacing
+  text-decoration: $text-decoration; // For text style
+
+  &:hover {
+    opacity: 0.9; // Slight dimming on hover
+  }
+
+  &:focus {
+    outline: 2px solid lighten($background, 20%); // Focus outline
+  }
+}

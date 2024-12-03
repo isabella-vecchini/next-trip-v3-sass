@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 /* CSS RESET */
 * {
@@ -7,249 +8,249 @@
   box-sizing: border-box;
 }
 
-/* Removing some of the default styling and changing the typography and text styles */
+/* removing some of the default styling and changing the typography and text styles */
 body {
   font-family: $font-family;
+  background-color: $primary-light;
 }
 
 p {
-  font-size: $font-size-mobile-small;
+    @include text-style ($font-size-mobile-body, normal, $grey);
 }
 
 a {
-  color: $text-color;
-  font-style: normal;
+    @include text-style ($font-size-mobile-body, normal, $dark-grey);
 }
 
 ul {
-  list-style-type: none;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1; /* Relative line spacing */
+    list-style-type: none;
 }
 
 h1 {
-  color: $color-black;
-  font-size: $font-size-mobile-xxlarge;
+    @include text-style ($font-size-mobile-h1, medium, $dark-grey);
 }
 
 h2 {
-  color: $color-dark;
-  font-size: $font-size-mobile-xlarge;
+    @include text-style ($font-size-mobile-h2, medium, $dark-grey);
 }
 
 h3 {
-  color: $color-dark;
-  font-size: $font-size-mobile-large;
+    @include text-style ($font-size-mobile-h3, normal, $dark-grey);
 }
 
+main {
+    margin-top: 68px; //moving the content below so it doesn't overlap with the fixed navbar
+}
+
+/* Navigation Bar */
 .navbar {
-  background-color: white;
+    background-color: $primary-light;
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
 }
 
-/* Spacing sections */
+/* spacing sections */
 section {
-  margin-bottom: $spacing-xlarge;
+  margin-bottom: $section-spacing;
 }
 
-/* Placing elements in the hero section */
+/* placing elements in the hero section */
 #plane-pic {
   max-width: 99%;
   height: auto;
-  margin-bottom: $spacing-large;
-  border-radius: $spacing-small;
+  border-radius: 8px;
+  margin-bottom: $gap-mobile;
 }
 
 .hero-text-container > * {
-  margin-bottom: $spacing-medium;
+  margin-bottom: $gap-mobile;
 }
 
-/* Buttons styling using the classes and BEM modifiers */
+/* buttons styling, includes BEM modifiers */
 .CTAbutton {
-  border: none;
-  cursor: pointer;
-  background: none;
+    @include button(); // No background, default text color
 
-  &--primary {
-    background: $primary-color;
-    color: white;
-    font-size: $font-size-mobile-medium;
-    border-radius: $spacing-large;
-    padding: $spacing-small $spacing-medium;
+    &--primary {
+        @include button($primary, #fff, 8px 24px, 32px, 28px);
   }
 
-  &--secondary {
-    color: $secondary-color;
-    text-decoration: underline;
-  }
+    &--secondary {
+        @include button(transparent, $secondary, 8px 16px, 4px, 16px, underline);
+}
 }
 
-/* Placing elements in the get the app section with flexbox */
+/* placing elements in the get the app section with flexbox */
 .get-the-app {
   display: flex;
   flex-direction: column; /* stacked elements in mobile */
   align-items: center;
   text-align: center; /* includes centering the 2 buttons because they're considered text */
-  gap: $spacing-large; /* space between the picture and text/buttons */
-  padding: $spacing-medium;
-
-  .app-illustration {
-    max-width: 90%;
-    height: auto;
-  }
-
-  .text-and-app-buttons {
-    max-width: 400px;
-
-    h2 {
-      margin-bottom: $spacing-small;
-    }
-
-    p {
-      margin-bottom: $spacing-medium;
-    }
-  }
-
-  .download-app-button {
-    max-width: 150px;
-    height: auto;
-    margin: $spacing-small; /* adds spacing around buttons */
-  }
+  gap: $gap-mobile; /* space between the picture and text/buttons */
+  padding: $padding-mobile;
 }
 
-/* Placing elements in the app features section with a grid (stacked) */
+.app-illustration {
+  max-width: 90%;
+  height: auto;
+}
+
+.text-and-app-buttons {
+  max-width: 400px;
+}
+
+.text-and-app-buttons h2 {
+  margin-bottom: 12px;
+}
+
+.text-and-app-buttons p {
+  margin-bottom: 16px;
+}
+
+.download-app-button {
+  max-width: 150px;
+  height: auto;
+  margin: 8px; /* adds spacing around buttons */
+}
+
+/* placing elements in the app features section with a grid (stacked) */
+.app-features-summary div {
+  margin-bottom: $section-spacing;
+}
+
 .app-features-summary {
   display: grid;
   grid-template-columns: 1fr; /* stacks all items vertically */
-  gap: $spacing-large; /* space between items */
-  padding: $spacing-medium;
+  gap: $gap-mobile; /* Space between items */
+  padding: $padding-mobile;
   margin: 0 auto; /* centers the content */
-
-  div {
-    margin-bottom: $spacing-xlarge;
-  }
-
-  .feature {
-    background-color: $bg-light;
-    border: 1px solid $primary-color;
-    border-radius: $spacing-small;
-    padding: $spacing-medium;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-
-    h2,
-    h3 {
-      margin-bottom: $spacing-small;
-      color: $secondary-color;
-    }
-
-    p {
-      color: $light-gray;
-    }
-  }
 }
 
-/* Styling the forms: log in page, sign up, and contact us pages */
+.feature {
+  background: $primary-light;
+  background: linear-gradient(346deg, $primary-light 50%, $primary 100%);
+  border: 1px solid $primary;
+  border-radius: 8px;
+  padding: $padding-mobile;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+  margin-bottom: 12px;
+  color: $secondary;
+}
+
+.feature p {
+  color: $grey;
+}
+
+/* styling the forms: log in page, sign up and contact us pages */
 form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: $spacing-medium; /* spacing elements */
+  gap: $gap-mobile; /* spacing elements */
   max-width: 90%; /* limits form width */
-  padding: $spacing-large;
-  border-radius: $spacing-small;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Placing elements in the footer with a grid */
+/* placing elements in the footer with a grid */
 .footer-links-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
   gap: 40px;
   align-items: end;
   padding: 0; /* removing default padding */
-
-  .footer-link {
-    text-decoration: none; /* removes the underline */
-    color: $dark-gray;
-  }
 }
 
-/* Images resizing */
+.footer-link {
+  @include text-style ($font-size-mobile-body, normal, $grey);
+  text-decoration: none;
+}
+
+/* images resizing */
 .picture-login-signup {
   max-width: 95%;
   height: auto;
 }
 
-/* From tablets onwards - I've used the same breakpoint as the xxl container from Bootstrap to keep it consistent */
+/* from tablets onwards - I've used the same breakpoint as the xxl container from bootstrap to keep it consistent */
 @media (min-width: 768px) {
-  /* Starting with increasing the font sizes */
+  /* starting with increasing the font sizes */
   h1 {
-    font-size: $font-size-desktop-xxlarge;
-  }
+    @include text-style ($font-size-desktop-h1, medium, $dark-grey);
+    }
 
-  h2 {
-    font-size: $font-size-desktop-xlarge;
-  }
+    h2 {
+        @include text-style ($font-size-desktop-h2, medium, $dark-grey);
+    }
 
-  h3 {
-    font-size: $font-size-desktop-large;
-  }
+    h3 {
+        @include text-style ($font-size-desktop-h3, medium, $dark-grey);
+    }
 
-  /* Hero section on larger screens is a grid 50/50 split */
+    p {
+        @include text-style ($font-size-desktop-body, normal, $grey);
+    }
+    
+    a {
+        @include text-style ($font-size-desktop-body, normal, $dark-grey);
+    }
+
+  /* hero section on larger screens is a grid 50/50 split */
   #hero-section {
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 80px;
     grid-template-areas: "hero-text-container plane-pic";
-
-    .hero-text-container {
-      grid-area: hero-text-container;
-      align-self: center;
-    }
-
-    .plane-pic {
-      grid-area: plane-pic;
-      justify-self: center;
-    }
   }
 
-  /* Adjusting the get the app flexbox for larger screens */
+  .hero-text-container {
+    grid-area: hero-text-container;
+    align-self: center;
+  }
+
+  #plane-pic {
+    grid-area: plane-pic;
+    justify-self: center;
+  }
+
+  /* adjusting the get the app flexbox for larger screens */
   .get-the-app {
     flex-direction: row; /* arranges elements side by side */
     align-items: center;
     justify-content: center;
     text-align: left;
     gap: 80px;
-
-    .app-illustration {
-      flex: 1; /* takes 50% of the space */
-      max-height: 560px;
-      object-fit: contain; /* ensures proper scaling */
-      align-self: center;
-    }
-
-    .text-and-app-buttons {
-      flex: 1; /* takes the other 50% of the space */
-      max-width: 90%;
-
-      p {
-        margin-bottom: $spacing-large;
-      }
-    }
-
-    .download-app-button {
-      max-width: 240px; /* increasing size of the app download buttons */
-    }
   }
 
-  /* Adjusting the app features summary grid for larger screens */
+  .app-illustration {
+    flex: 1; /* takes 50% of the space */
+    max-height: 560px;
+    width: auto;
+    object-fit: contain;
+    align-self: center;
+  }
+
+  .text-and-app-buttons {
+    flex: 1; /* takes the other 50% of the space */
+    max-width: 90%;
+  }
+
+  .text-and-app-buttons p {
+    margin-bottom: 24px;
+  }
+
+  .download-app-button {
+    max-width: 240px; /* increasing size of the app download buttons */
+  }
+
+  /* adjusting the app features summary grid for larger screens */
   .app-features-summary {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive grid */
-    gap: 32px; /* increases spacing for larger screens */
-    padding: 32px; /* more padding for wider layouts */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
+    gap: $gap-desktop; /* increases spacing for larger screens */
+    padding: $padding-desktop; /* more padding for wider layouts */
     max-width: 1200px; /* limits the container width */
   }
 }
