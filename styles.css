@@ -120,7 +120,7 @@ section {
   border: none;
   cursor: pointer;
   background: transparent;
-  color: #451ed2;
+  color: #4e25e4;
   font-size: 16px;
   border-radius: 4px;
   padding: 8px 16px;
@@ -167,53 +167,60 @@ section {
 }
 
 /* placing elements in the app features section with a grid (stacked) */
-.app-features-summary div {
-  margin-bottom: 56px;
-}
-
 .app-features-summary {
   display: grid;
   grid-template-columns: 1fr; /* stacks all items vertically */
-  gap: 24px; /* Space between items */
+  gap: 24px; /* Space between cards */
   padding: 16px;
   margin: 0 auto; /* centers the content */
 }
 
 .feature {
-  background: #f6f3f2;
-  background: linear-gradient(346deg, #f6f3f2 50%, #d18067 100%);
-  border: 1px solid #d18067;
+  background: linear-gradient(346deg, #673dff 30%, #4e25e4 100%);
   border-radius: 8px;
-  padding: 16px;
+  padding: 32px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feature h3 {
-  margin-bottom: 12px;
-  color: #451ed2;
+  margin-bottom: 16px;
+  color: #f6f3f2;
 }
 
 .feature p {
-  color: #666666;
+  color: #f6f3f2;
 }
 
 /* styling the forms: log in page, sign up and contact us pages */
+#contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  align-self: center;
   align-items: flex-start;
-  gap: 24px; /* spacing elements */
+  gap: 16px;
   max-width: 90%; /* limits form width */
-  padding: 24px;
+  padding: 32px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* images resizing */
+.picture-login-signup {
+  max-width: 95%;
+  height: auto;
 }
 
 /* placing elements in the footer with a grid */
 .footer-links-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
-  gap: 40px;
+  gap: 56px;
   align-items: end;
   padding: 0; /* removing default padding */
 }
@@ -223,12 +230,6 @@ form {
   font-weight: normal;
   color: #666666;
   text-decoration: none;
-}
-
-/* images resizing */
-.picture-login-signup {
-  max-width: 95%;
-  height: auto;
 }
 
 /* from tablets onwards - I've used the same breakpoint as the xxl container from bootstrap to keep it consistent */
@@ -262,17 +263,22 @@ form {
   /* hero section on larger screens is a grid 50/50 split */
   #hero-section {
     display: grid;
+    max-width: 100%;
     grid-template-columns: 50% 50%;
-    gap: 80px;
     grid-template-areas: "hero-text-container plane-pic";
+    gap: 80px;
   }
   .hero-text-container {
     grid-area: hero-text-container;
     align-self: center;
+    justify-self: right;
   }
   #plane-pic {
     grid-area: plane-pic;
-    justify-self: center;
+    justify-self: left;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
   /* adjusting the get the app flexbox for larger screens */
   .get-the-app {

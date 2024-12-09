@@ -9,12 +9,12 @@
  
 /* buttons styling using pseudoclasses for states*/
 @mixin button(
-  $background: transparent, // Default to transparent for no background
-  $color: inherit,          // Default to inheriting text color
-  $padding: 8px 16px,       // Default padding
-  $border-radius: 4px,      // Default border radius
-  $font-size: 16px,         // Default font size
-  $text-decoration: none    // Default to no text decoration
+  $background: transparent, // Defaults to transparent for no background
+  $color: inherit,          // Defaults to inheriting text color
+  $padding: 8px 16px,       // Defaults padding
+  $border-radius: 4px,      // Defaults border radius
+  $font-size: 16px,         // Defaults font size
+  $text-decoration: none    // Defaults to no text decoration
 ) {
   border: none;
   cursor: pointer;
