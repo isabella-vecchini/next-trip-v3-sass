@@ -14,56 +14,59 @@
 <!-- Wrapping all the content of the pages inside a bootstrap container, to make sure when 1300 px are reached, it stops expanding with the viewport to keep it centered-->
 <div class="container-xxl">
 
-    <main>
+    <h1 id="sign-up-header">Start planning your next trip today</h1>
 
-        <h1 id="sign-up-header">Start planning your next trip today</h1>
-
-<!--Sign un form-->
-        <form action="/submit.html" method="post">
+    <main class="picture-and-form-container">
+ 
+        <div>
             <h2 id="sign-up-paragraph">Sign up free of charge.</h2>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+<!--Sign un form-->
+            <form action="/submit.html" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
 
-            <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname">
+                <label for="surname">Surname</label>
+                <input type="text" name="surname" id="surname">
 
-            <label for="email">E-mail address</label>
-            <input type="email" name="email" id="email">
+                <label for="email">E-mail address</label>
+                <input type="email" name="email" id="email">
 
-            <label for="age-range">How old are you?</label>
-            <select name="age-range" id="age-range">
-                <option name="less-20" id="less-20">Less then 20 years old</option>
-                <option name="20-25" id="20-25">Between 20 and 25</option>
-                <option name="25-35" id="25-35">Between 35 and 35</option>
-                <option name="35-45" id="35-45">Between 35 and 45</option>
-                <option name="over-45" id="over-45">More than 45 years old</option>
-            </select>
+                <label for="age-range">How old are you?</label>
+                <select name="age-range" id="age-range">
+                    <option name="less-20" id="less-20">Less then 20 years old</option>
+                    <option name="20-25" id="20-25">Between 20 and 25</option>
+                    <option name="25-35" id="25-35">Between 35 and 35</option>
+                    <option name="35-45" id="35-45">Between 35 and 45</option>
+                    <option name="over-45" id="over-45">More than 45 years old</option>
+                </select>
 
-            <label for="country">Which country do you live in?</label>
-            <select name="country" id="country">
-                <option value="spain">Spain</option>
-                <option value="italy">Italy</option>
-                <option value="argentina">Argentina</option>
-                <option value="other">Other</option>
-            </select>
+                <label for="country">Which country do you live in?</label>
+                <select name="country" id="country">
+                    <option value="spain">Spain</option>
+                    <option value="italy">Italy</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label for="subscribed-nl">Would you like to subscribe to our newsletter?</label>
-            <input type="checkbox" name="subscribe" id="subscribe">
-            <input class="CTAbutton CTAbutton--primary" type="submit" value="Sign up">
+                <label for="subscribed-nl">Would you like to subscribe to our newsletter?</label>
+                <input type="checkbox" name="subscribe" id="subscribe">
+                <input class="CTAbutton CTAbutton--primary" type="submit" value="Sign up">
 
-            <p class="secondary-cta">
-                Already have an account? 
-                <a href="log-in.html">
-                    <button class="CTAbutton CTAbutton--secondary">Log in</button>
-                </a>
-            </p>
-        
-        </form>
+                <p class="secondary-cta">
+                    Already have an account? 
+                    <a href="log-in.html">
+                        <button class="CTAbutton CTAbutton--secondary">Log in</button>
+                    </a>
+                </p>
+            
+            </form>
+        </div>
+
+<!-- Picture at the right side of the page-->
+        <img class="picture-login-signup" src="/images/mountain-runner.jpg" alt="Sign up picture">
 
     </main>
 
-<!-- Picture at the right side of the page-->
-    <img class="picture-login-signup" src="/images/mountain-runner.jpg" alt="Sign up picture">
 
 </div>
 

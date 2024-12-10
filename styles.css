@@ -79,6 +79,10 @@ main {
   margin-top: 68px;
 }
 
+#sign-up-header {
+  margin-top: 68px;
+}
+
 /* Navigation Bar */
 .navbar {
   background-color: #f6f3f2;
@@ -138,12 +142,15 @@ section {
   border-radius: 4px;
   padding: 8px 16px;
   text-decoration: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .CTAbutton:hover {
   opacity: 0.9;
+  transform: scale(1.03);
 }
 .CTAbutton:focus {
   outline: 2px solid rgba(51, 51, 51, 0);
+  transform: scale(1.03);
 }
 .CTAbutton--primary {
   border: none;
@@ -154,12 +161,15 @@ section {
   border-radius: 32px;
   padding: 8px 24px;
   text-decoration: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .CTAbutton--primary:hover {
   opacity: 0.9;
+  transform: scale(1.03);
 }
 .CTAbutton--primary:focus {
   outline: 2px solid rgb(232.696969697, 193.4242424242, 181.303030303);
+  transform: scale(1.03);
 }
 .CTAbutton--secondary {
   border: none;
@@ -170,12 +180,15 @@ section {
   border-radius: 4px;
   padding: 8px 16px;
   text-decoration: underline;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .CTAbutton--secondary:hover {
   opacity: 0.9;
+  transform: scale(1.03);
 }
 .CTAbutton--secondary:focus {
   outline: 2px solid rgba(51, 51, 51, 0);
+  transform: scale(1.03);
 }
 
 /* placing elements in the get the app section with flexbox */
@@ -199,9 +212,16 @@ section {
   }
 }
 
+.image-container {
+  width: 300px; /* Set the width of the container */
+  perspective: 1000px; /* Adds depth to the transformation */
+}
+
 .app-illustration {
-  max-width: 90%;
-  height: auto;
+  width: 100%; /* Makes the image responsive */
+  transform: rotateY(15deg); /* Rotate on the Y-axis to simulate a side view */
+  transform-origin: center; /* Set the pivot point to the center */
+  transition: transform 0.3s ease-in-out; /* Smooth transition when hover is applied (optional) */
 }
 
 .text-and-app-buttons {
@@ -250,7 +270,7 @@ section {
 
 .feature {
   background: linear-gradient(346deg, #673dff 30%, #4e25e4 100%);
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 24px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -274,38 +294,35 @@ section {
   color: #f6f3f2;
 }
 
-/* styling the forms: log in page, sign up and contact us pages */
-#contact-section {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.general-text-section {
   padding-top: 40px;
 }
 @media (min-width: 768px) {
-  #contact-section {
-    gap: 48px;
-  }
-}
-@media (min-width: 768px) {
-  #contact-section {
+  .general-text-section {
     padding-top: 48px;
   }
 }
+.general-text-section > * {
+  margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .general-text-section > * {
+    margin-bottom: 24px;
+  }
+}
 
+/* styling the forms: log in page, sign up and contact us pages */
 form {
-  max-width: 90%; /* limits form width */
   display: flex;
   flex-direction: column;
   align-self: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 4px;
   padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 @media (min-width: 768px) {
   form {
-    gap: 16px;
+    gap: 8px;
   }
 }
 @media (min-width: 768px) {
@@ -389,12 +406,8 @@ form {
     justify-content: center;
     text-align: left;
   }
-  .app-illustration {
+  .image-container {
     flex: 1; /* takes 50% of the space */
-    max-height: 560px;
-    width: auto;
-    object-fit: contain;
-    align-self: center;
   }
   .text-and-app-buttons {
     flex: 1; /* takes the other 50% of the space */
@@ -403,6 +416,15 @@ form {
   .app-features-summary {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
     max-width: 1200px; /* limits the container width */
+  }
+  .picture-and-form-container {
+    display: flex;
+    flex-direction: row; /* arranges elements side by side */
+    justify-content: space-between;
+    text-align: left;
+  }
+  .picture-login-signup {
+    max-width: 50%;
   }
 }
 

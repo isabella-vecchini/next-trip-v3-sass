@@ -13,33 +13,35 @@
 <!-- Wrapping all the content of the pages inside a bootstrap container, to make sure when 1300 px are reached, it stops expanding with the viewport to keep it centered-->
 <div class="container-xxl">
 
-    <main>
+    <main class="picture-and-form-container">
 
-        <h1 id="log-in-header">Welcome back</h1>
+        <div>
 
-<!--Log in page: it's not sending anything anywhere, so the submit button leads you back to the same page-->
-        <form action="/log-in.html" method="post">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email">
+            <h1 id="log-in-header">Welcome back</h1>
+    <!--Log in page: it's not sending anything anywhere, so the submit button leads you back to the same page-->
+            <form action="/log-in.html" method="post">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email">
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
 
-            <input class="CTAbutton CTAbutton--primary" type="submit" value="Log in">
+                <input class="CTAbutton CTAbutton--primary" type="submit" value="Log in">
 
-            <p class="secondary-cta">
-                Don't have an account? 
-                <a href="/pages/sign-up.html">
-                    <button class="CTAbutton CTAbutton--secondary">Sign up</button>
-                </a>
-            </p>
+                <p class="secondary-cta">
+                    Don't have an account? 
+                    <a href="/pages/sign-up.html">
+                        <button class="CTAbutton CTAbutton--secondary">Sign up</button>
+                    </a>
+                </p>
+            </form>
 
-        </form>
-        
-    </main>
+        </div>
 
 <!-- Picture at the left side of the page-->
-    <img class="picture-login-signup" src="/images/map-pic.jpg" alt="Log in page picture">
+        <img class="picture-login-signup" src="/images/map-pic.jpg" alt="Log in page picture">
+        
+    </main>
 
 </div>
 

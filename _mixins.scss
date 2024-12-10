@@ -38,12 +38,15 @@
   border-radius: $border-radius; // Rounded corners
   padding: $padding;        // Internal spacing
   text-decoration: $text-decoration; // For text style
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; // transition effect for hover and focus changes
 
   &:hover {
     opacity: 0.9; // Slight dimming on hover
+    transform: scale(1.03); //and slightly larger
   }
 
   &:focus {
     outline: 2px solid lighten($background, 20%); // Focus outline
+    transform: scale(1.03); //and slightly larger
   }
 }

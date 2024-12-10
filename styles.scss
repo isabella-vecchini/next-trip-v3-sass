@@ -43,6 +43,11 @@ main {
     margin-top: 68px; //moving the content below so it doesn't overlap with the fixed navbar
 }
 
+#sign-up-header {
+    margin-top: 68px; //sign up is the only page where the h1 is out of the main section 
+}
+
+
 /* Navigation Bar */
 .navbar {
     background-color: $primary-light;
@@ -77,7 +82,7 @@ section {
 
     &--secondary {
         @include button(transparent, $secondary, 8px 16px, 4px, 16px, underline);
-}
+    }
 }
 
 /* placing elements in the get the app section with flexbox */
@@ -90,9 +95,17 @@ section {
   @include responsive-spacing(small, padding);
 }
 
+
+.image-container {
+    width: 300px; /* Set the width of the container */
+    perspective: 1000px; /* Adds depth to the transformation */
+  }
+  
 .app-illustration {
-  max-width: 90%;
-  height: auto;
+    width: 100%; /* Makes the image responsive */
+    transform: rotateY(15deg); /* Rotate on the Y-axis to simulate a side view */
+    transform-origin: center; /* Set the pivot point to the center */
+    transition: transform 0.3s ease-in-out; /* Smooth transition when hover is applied (optional) */
 }
 
 .text-and-app-buttons {
@@ -121,7 +134,7 @@ section {
 
 .feature {
     background: linear-gradient(346deg, $secondary-light 30%, $secondary 100%);
-    border-radius: 8px;
+    border-radius: 16px;
     @include responsive-spacing(medium, padding);
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -135,26 +148,25 @@ section {
   color: $primary-light;
 }
 
-/* styling the forms: log in page, sign up and contact us pages */
 
-#contact-section {
-    display: flex;
-    flex-direction: column;
-    @include responsive-spacing(xl, gap);
+.general-text-section {
     @include responsive-spacing(xl, padding-top);
+
+    & > * {
+        @include responsive-spacing(small, margin-bottom);
+    }
 }
+
+/* styling the forms: log in page, sign up and contact us pages */
 
 
 form {
-    max-width: 90%; /* limits form width */
     display: flex;
     flex-direction: column;
     align-self: center;
     align-items: flex-start;
-    @include responsive-spacing(xs, gap);
+    @include responsive-spacing(xxs, gap);
     @include responsive-spacing(medium, padding);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* images resizing */
@@ -213,12 +225,9 @@ form {
     text-align: left;
   }
 
-  .app-illustration {
+  
+  .image-container {
     flex: 1; /* takes 50% of the space */
-    max-height: 560px;
-    width: auto;
-    object-fit: contain;
-    align-self: center;
   }
 
   .text-and-app-buttons {
@@ -231,4 +240,18 @@ form {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
     max-width: 1200px; /* limits the container width */
   }
+
+    //log in and sign up pages
+    .picture-and-form-container {
+        display: flex;
+        flex-direction: row; /* arranges elements side by side */
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .picture-login-signup {
+        max-width: 50%;
+    }
+
 }
+
