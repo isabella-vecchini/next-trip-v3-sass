@@ -1,11 +1,25 @@
 /*mixins*/
 
-/* the : with value means that, if the variable is not speicified, the default is applied*/
-@mixin text-style($size, $weight: normal, $color: inherit) {
-    font-size: $size;
+//Typescale mixin, the : with value means that, if the variable is not speicified, the default is applied*/
+@mixin responsive-typography($font-key, $weight: normal, $color: inherit) {
+    font-size: map-get(map-get($font-sizes, $font-key), mobile); // Mobile size
     font-weight: $weight;
     color: $color;
+  
+    @media (min-width: 768px) { // Desktop size
+      font-size: map-get(map-get($font-sizes, $font-key), desktop);
+    }
   }
+
+// Spacing mixin
+  @mixin responsive-spacing($size-key, $property: margin) {
+    #{$property}: map-get(map-get($spacing, $size-key), mobile); // Mobile size
+  
+    @media (min-width: 768px) {
+      #{$property}: map-get(map-get($spacing, $size-key), desktop); // Desktop size
+    }
+  }
+
  
 /* buttons styling using pseudoclasses for states*/
 @mixin button(

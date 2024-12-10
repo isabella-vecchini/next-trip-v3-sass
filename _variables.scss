@@ -1,7 +1,16 @@
-/* Variables for consistent styling */
+// Variables for consistent styling */
 $font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-/* Color Variables */
+// Font size variables mapping
+$font-sizes: (
+  h1: (mobile: 48px, desktop: 64px),
+  h2: (mobile: 40px, desktop: 56px),
+  h3: (mobile: 32px, desktop: 40px),
+  body: (mobile: 16px, desktop: 18px),
+  small: (mobile: 14px, desktop: 16px)
+);
+
+// Color Variables
 $primary: #d18067;
 $primary-dark: #b16750;
 $primary-light: #f6f3f2;
@@ -14,21 +23,13 @@ $grey: #666666; /* General text color */
 $dark-grey: #202020; /* For headings */
 $light-grey: #f5f5f5; /* Light grey background */
 
-/* Font Size Variables */
-$font-size-mobile-h1: 48px;
-$font-size-mobile-h2: 40px;
-$font-size-mobile-h3: 32px;
-$font-size-mobile-body: 16px;
+//Spacing mapping
 
-$font-size-desktop-h1: 64px;
-$font-size-desktop-h2: 56px;
-$font-size-desktop-h3: 40px;
-$font-size-desktop-body: 18px;
-
-/* Spacing Variables */
-$horizontal-gap: 80px;
-$section-spacing: 56px;
-$gap-mobile: 24px;
-$gap-desktop: 32px;
-$padding-mobile: 16px;
-$padding-desktop: 32px;
+$spacing: (
+    xs: (mobile: 8px, desktop: 16px),
+    small: (mobile: 16px, desktop: 24px),
+    medium: (mobile: 24px, desktop: 32px),
+    large: (mobile: 32px, desktop: 40px),
+    xl: (mobile: 40px, desktop: 48px),
+    xxl: (mobile: 48px, desktop: 56px),
+);

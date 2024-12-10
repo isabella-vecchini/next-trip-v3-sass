@@ -8,18 +8,10 @@
   box-sizing: border-box;
 }
 
-/* removing some of the default styling and changing the typography and text styles */
+/* Typography and text styles */
 body {
   font-family: $font-family;
   background-color: $primary-light;
-}
-
-p {
-    @include text-style ($font-size-mobile-body, normal, $grey);
-}
-
-a {
-    @include text-style ($font-size-mobile-body, normal, $dark-grey);
 }
 
 ul {
@@ -27,16 +19,25 @@ ul {
 }
 
 h1 {
-    @include text-style ($font-size-mobile-h1, medium, $dark-grey);
+    @include responsive-typography(h1, medium, $dark-grey);
+}
+  
+  h2 {
+    @include responsive-typography(h2, medium, $dark-grey);
+}
+  
+  h3 {
+    @include responsive-typography(h3, normal, $dark-grey);
+}
+  
+  p {
+    @include responsive-typography(body, normal, $grey);
 }
 
-h2 {
-    @include text-style ($font-size-mobile-h2, medium, $dark-grey);
+  a {
+    @include responsive-typography(body, normal, $dark-grey);
 }
-
-h3 {
-    @include text-style ($font-size-mobile-h3, normal, $dark-grey);
-}
+  
 
 main {
     margin-top: 68px; //moving the content below so it doesn't overlap with the fixed navbar
@@ -45,13 +46,13 @@ main {
 /* Navigation Bar */
 .navbar {
     background-color: $primary-light;
-    padding-left: $padding-mobile;
-    padding-right: $padding-mobile;
+    @include responsive-spacing(small, padding-left);
+    @include responsive-spacing(small, padding-left);
 }
 
 /* spacing sections */
 section {
-  margin-bottom: $section-spacing;
+    @include responsive-spacing(xl, margin-bottom);
 }
 
 /* placing elements in the hero section */
@@ -59,11 +60,11 @@ section {
   max-width: 99%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: $gap-mobile;
+  @include responsive-spacing(medium, margin-bottom);
 }
 
 .hero-text-container > * {
-  margin-bottom: $gap-mobile;
+    @include responsive-spacing(medium, margin-bottom);
 }
 
 /* buttons styling, includes BEM modifiers */
@@ -71,7 +72,7 @@ section {
     @include button(); // No background, default text color
 
     &--primary {
-        @include button($primary, #fff, 8px 24px, 32px, 28px);
+        @include button($primary, #fff, 8px 24px, 32px, 20px);
   }
 
     &--secondary {
@@ -85,8 +86,8 @@ section {
   flex-direction: column; /* stacked elements in mobile */
   align-items: center;
   text-align: center; /* includes centering the 2 buttons because they're considered text */
-  gap: $gap-mobile; /* space between the picture and text/buttons */
-  padding: $padding-mobile;
+  @include responsive-spacing(medium, gap); /* space between the picture and text/buttons */
+  @include responsive-spacing(small, padding);
 }
 
 .app-illustration {
@@ -98,40 +99,36 @@ section {
   max-width: 400px;
 }
 
-.text-and-app-buttons h2 {
-  margin-bottom: 12px;
-}
-
-.text-and-app-buttons p {
-  margin-bottom: 16px;
+.text-and-app-buttons > * {
+    @include responsive-spacing(small, margin-bottom);
 }
 
 .download-app-button {
-  max-width: 150px;
-  height: auto;
-  margin: 8px; /* adds spacing around buttons */
+    max-width: 240px;
+    height: auto;
+    @include responsive-spacing(xs, margin); /* adds spacing around buttons */
 }
 
 /* placing elements in the app features section with a grid (stacked) */
 
 .app-features-summary {
-  display: grid;
-  grid-template-columns: 1fr; /* stacks all items vertically */
-  gap: $gap-mobile; /* Space between cards */
-  padding: $padding-mobile;
-  margin: 0 auto; /* centers the content */
+    display: grid;
+    grid-template-columns: 1fr; /* stacks all items vertically */
+    @include responsive-spacing(small, gap);
+    @include responsive-spacing(small, padding);
+    margin: 0 auto; /* centers the content */
 }
 
 .feature {
-  background: linear-gradient(346deg, $secondary-light 30%, $secondary 100%);
-  border-radius: 8px;
-  padding: $padding-desktop;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(346deg, $secondary-light 30%, $secondary 100%);
+    border-radius: 8px;
+    @include responsive-spacing(medium, padding);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .feature h3 {
-  margin-bottom: 16px;
-  color: $primary-light;
+    @include responsive-spacing(small, margin-bottom);
+    color: $primary-light;
 }
 
 .feature p {
@@ -143,18 +140,19 @@ section {
 #contact-section {
     display: flex;
     flex-direction: column;
-    gap: $section-spacing;
+    @include responsive-spacing(xl, gap);
+    @include responsive-spacing(xl, padding-top);
 }
 
 
 form {
+    max-width: 90%; /* limits form width */
     display: flex;
     flex-direction: column;
     align-self: center;
     align-items: flex-start;
-    gap: $padding-mobile;
-    max-width: 90%; /* limits form width */
-    padding: $padding-desktop;
+    @include responsive-spacing(xs, gap);
+    @include responsive-spacing(medium, padding);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
@@ -169,39 +167,20 @@ form {
 .footer-links-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
-  gap: $section-spacing;
+  @include responsive-spacing(large, gap);
+  @include responsive-spacing (large, margin);
   align-items: end;
   padding: 0; /* removing default padding */
 }
 
 .footer-link {
-  @include text-style ($font-size-mobile-body, normal, $grey);
+  @include responsive-typography (body, normal, $grey);
   text-decoration: none;
 }
 
 
 /* from tablets onwards - I've used the same breakpoint as the xxl container from bootstrap to keep it consistent */
 @media (min-width: 768px) {
-  /* starting with increasing the font sizes */
-  h1 {
-    @include text-style ($font-size-desktop-h1, medium, $dark-grey);
-    }
-
-    h2 {
-        @include text-style ($font-size-desktop-h2, medium, $dark-grey);
-    }
-
-    h3 {
-        @include text-style ($font-size-desktop-h3, medium, $dark-grey);
-    }
-
-    p {
-        @include text-style ($font-size-desktop-body, normal, $grey);
-    }
-    
-    a {
-        @include text-style ($font-size-desktop-body, normal, $dark-grey);
-    }
 
   /* hero section on larger screens is a grid 50/50 split */
   #hero-section {
@@ -209,7 +188,7 @@ form {
     max-width: 100%;
     grid-template-columns: 50% 50%;
     grid-template-areas: "hero-text-container plane-pic";
-    gap: $horizontal-gap;
+    @include responsive-spacing(xxl, gap);
   }
 
   .hero-text-container {
@@ -232,7 +211,6 @@ form {
     align-items: center;
     justify-content: center;
     text-align: left;
-    gap: $horizontal-gap;
   }
 
   .app-illustration {
@@ -248,19 +226,9 @@ form {
     max-width: 90%;
   }
 
-  .text-and-app-buttons p {
-    margin-bottom: $gap-mobile;
-  }
-
-  .download-app-button {
-    max-width: 240px; /* increasing size of the app download buttons */
-  }
-
   /* adjusting the app features summary grid for larger screens */
   .app-features-summary {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
-    gap: $gap-desktop; /* increases spacing for larger screens */
-    padding: $padding-desktop; /* more padding for wider layouts */
     max-width: 1200px; /* limits the container width */
   }
 }

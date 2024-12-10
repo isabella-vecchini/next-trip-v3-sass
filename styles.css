@@ -1,12 +1,7 @@
-/* Variables for consistent styling */
-/* Color Variables */
 /* General text color */
 /* For headings */
 /* Light grey background */
-/* Font Size Variables */
-/* Spacing Variables */
 /*mixins*/
-/* the : with value means that, if the variable is not speicified, the default is applied*/
 /* buttons styling using pseudoclasses for states*/
 /* CSS RESET */
 * {
@@ -15,22 +10,10 @@
   box-sizing: border-box;
 }
 
-/* removing some of the default styling and changing the typography and text styles */
+/* Typography and text styles */
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   background-color: #f6f3f2;
-}
-
-p {
-  font-size: 16px;
-  font-weight: normal;
-  color: #666666;
-}
-
-a {
-  font-size: 16px;
-  font-weight: normal;
-  color: #202020;
 }
 
 ul {
@@ -42,17 +25,54 @@ h1 {
   font-weight: medium;
   color: #202020;
 }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 64px;
+  }
+}
 
 h2 {
   font-size: 40px;
   font-weight: medium;
   color: #202020;
 }
+@media (min-width: 768px) {
+  h2 {
+    font-size: 56px;
+  }
+}
 
 h3 {
   font-size: 32px;
   font-weight: normal;
   color: #202020;
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 40px;
+  }
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+  color: #666666;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+  }
+}
+
+a {
+  font-size: 16px;
+  font-weight: normal;
+  color: #202020;
+}
+@media (min-width: 768px) {
+  a {
+    font-size: 18px;
+  }
 }
 
 main {
@@ -63,12 +83,27 @@ main {
 .navbar {
   background-color: #f6f3f2;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 16px;
+}
+@media (min-width: 768px) {
+  .navbar {
+    padding-left: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .navbar {
+    padding-left: 24px;
+  }
 }
 
 /* spacing sections */
 section {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  section {
+    margin-bottom: 48px;
+  }
 }
 
 /* placing elements in the hero section */
@@ -78,9 +113,19 @@ section {
   border-radius: 8px;
   margin-bottom: 24px;
 }
+@media (min-width: 768px) {
+  #plane-pic {
+    margin-bottom: 32px;
+  }
+}
 
 .hero-text-container > * {
   margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .hero-text-container > * {
+    margin-bottom: 32px;
+  }
 }
 
 /* buttons styling, includes BEM modifiers */
@@ -105,7 +150,7 @@ section {
   cursor: pointer;
   background: #d18067;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
   border-radius: 32px;
   padding: 8px 24px;
   text-decoration: none;
@@ -139,8 +184,19 @@ section {
   flex-direction: column; /* stacked elements in mobile */
   align-items: center;
   text-align: center; /* includes centering the 2 buttons because they're considered text */
-  gap: 24px; /* space between the picture and text/buttons */
+  gap: 24px;
+  /* space between the picture and text/buttons */
   padding: 16px;
+}
+@media (min-width: 768px) {
+  .get-the-app {
+    gap: 32px;
+  }
+}
+@media (min-width: 768px) {
+  .get-the-app {
+    padding: 24px;
+  }
 }
 
 .app-illustration {
@@ -152,39 +208,66 @@ section {
   max-width: 400px;
 }
 
-.text-and-app-buttons h2 {
-  margin-bottom: 12px;
-}
-
-.text-and-app-buttons p {
+.text-and-app-buttons > * {
   margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .text-and-app-buttons > * {
+    margin-bottom: 24px;
+  }
 }
 
 .download-app-button {
-  max-width: 150px;
+  max-width: 240px;
   height: auto;
-  margin: 8px; /* adds spacing around buttons */
+  margin: 8px;
+  /* adds spacing around buttons */
+}
+@media (min-width: 768px) {
+  .download-app-button {
+    margin: 16px;
+  }
 }
 
 /* placing elements in the app features section with a grid (stacked) */
 .app-features-summary {
   display: grid;
   grid-template-columns: 1fr; /* stacks all items vertically */
-  gap: 24px; /* Space between cards */
+  gap: 16px;
   padding: 16px;
   margin: 0 auto; /* centers the content */
+}
+@media (min-width: 768px) {
+  .app-features-summary {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .app-features-summary {
+    padding: 24px;
+  }
 }
 
 .feature {
   background: linear-gradient(346deg, #673dff 30%, #4e25e4 100%);
   border-radius: 8px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 768px) {
+  .feature {
+    padding: 32px;
+  }
 }
 
 .feature h3 {
   margin-bottom: 16px;
   color: #f6f3f2;
+}
+@media (min-width: 768px) {
+  .feature h3 {
+    margin-bottom: 24px;
+  }
 }
 
 .feature p {
@@ -195,19 +278,40 @@ section {
 #contact-section {
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 40px;
+  padding-top: 40px;
+}
+@media (min-width: 768px) {
+  #contact-section {
+    gap: 48px;
+  }
+}
+@media (min-width: 768px) {
+  #contact-section {
+    padding-top: 48px;
+  }
 }
 
 form {
+  max-width: 90%; /* limits form width */
   display: flex;
   flex-direction: column;
   align-self: center;
   align-items: flex-start;
-  gap: 16px;
-  max-width: 90%; /* limits form width */
-  padding: 32px;
+  gap: 8px;
+  padding: 24px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+@media (min-width: 768px) {
+  form {
+    gap: 16px;
+  }
+}
+@media (min-width: 768px) {
+  form {
+    padding: 32px;
+  }
 }
 
 /* images resizing */
@@ -220,9 +324,20 @@ form {
 .footer-links-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
-  gap: 56px;
+  gap: 32px;
+  margin: 32px;
   align-items: end;
   padding: 0; /* removing default padding */
+}
+@media (min-width: 768px) {
+  .footer-links-container {
+    gap: 40px;
+  }
+}
+@media (min-width: 768px) {
+  .footer-links-container {
+    margin: 40px;
+  }
 }
 
 .footer-link {
@@ -231,43 +346,31 @@ form {
   color: #666666;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .footer-link {
+    font-size: 18px;
+  }
+}
 
 /* from tablets onwards - I've used the same breakpoint as the xxl container from bootstrap to keep it consistent */
 @media (min-width: 768px) {
-  /* starting with increasing the font sizes */
-  h1 {
-    font-size: 64px;
-    font-weight: medium;
-    color: #202020;
-  }
-  h2 {
-    font-size: 56px;
-    font-weight: medium;
-    color: #202020;
-  }
-  h3 {
-    font-size: 40px;
-    font-weight: medium;
-    color: #202020;
-  }
-  p {
-    font-size: 18px;
-    font-weight: normal;
-    color: #666666;
-  }
-  a {
-    font-size: 18px;
-    font-weight: normal;
-    color: #202020;
-  }
   /* hero section on larger screens is a grid 50/50 split */
   #hero-section {
     display: grid;
     max-width: 100%;
     grid-template-columns: 50% 50%;
     grid-template-areas: "hero-text-container plane-pic";
-    gap: 80px;
+    gap: 48px;
   }
+  /* adjusting the get the app flexbox for larger screens */
+  /* adjusting the app features summary grid for larger screens */
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  #hero-section {
+    gap: 56px;
+  }
+}
+@media (min-width: 768px) {
   .hero-text-container {
     grid-area: hero-text-container;
     align-self: center;
@@ -280,13 +383,11 @@ form {
     height: auto;
     object-fit: contain;
   }
-  /* adjusting the get the app flexbox for larger screens */
   .get-the-app {
     flex-direction: row; /* arranges elements side by side */
     align-items: center;
     justify-content: center;
     text-align: left;
-    gap: 80px;
   }
   .app-illustration {
     flex: 1; /* takes 50% of the space */
@@ -299,17 +400,8 @@ form {
     flex: 1; /* takes the other 50% of the space */
     max-width: 90%;
   }
-  .text-and-app-buttons p {
-    margin-bottom: 24px;
-  }
-  .download-app-button {
-    max-width: 240px; /* increasing size of the app download buttons */
-  }
-  /* adjusting the app features summary grid for larger screens */
   .app-features-summary {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
-    gap: 32px; /* increases spacing for larger screens */
-    padding: 32px; /* more padding for wider layouts */
     max-width: 1200px; /* limits the container width */
   }
 }
