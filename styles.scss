@@ -50,9 +50,14 @@ main {
 
 /* Navigation Bar */
 .navbar {
-    background-color: $primary-light;
+    background: $primary-light;
     @include responsive-spacing(small, padding-left);
-    @include responsive-spacing(small, padding-left);
+    @include responsive-spacing(small, padding-right);
+}
+
+.log-in-button {
+    @include responsive-typography (small, bold, $dark-grey);
+    @include responsive-spacing(small, margin-left);
 }
 
 /* spacing sections */
@@ -133,10 +138,20 @@ section {
 }
 
 .feature {
-    background: linear-gradient(346deg, $secondary-light 30%, $secondary 100%);
+    background: linear-gradient(346deg, $primary 10%, $secondary-light 100%);
     border-radius: 16px;
     @include responsive-spacing(medium, padding);
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3);
+    opacity: 0; // initially hidden
+    transform: translateY(40px); // starts slightly below the position
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; // smooth transition
+    will-change: opacity, transform;
+
+//the visible class is added by the animations js file on scroll, when the object becomes visible in the screen
+    &.visible {
+        opacity: 1; // fully visible
+        transform: translateY(0); // final position
+    }
 }
 
 .feature h3 {
@@ -237,7 +252,7 @@ form {
 
   /* adjusting the app features summary grid for larger screens */
   .app-features-summary {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* not stacked anymore, they're responsive columns in number */
     max-width: 1200px; /* limits the container width */
   }
 
@@ -254,4 +269,3 @@ form {
     }
 
 }
-

@@ -32,24 +32,24 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: medium;
   color: #202020;
 }
 @media (min-width: 768px) {
   h2 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: normal;
   color: #202020;
 }
 @media (min-width: 768px) {
   h3 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 
@@ -85,9 +85,9 @@ main {
 
 /* Navigation Bar */
 .navbar {
-  background-color: #f6f3f2;
+  background: #f6f3f2;
   padding-left: 16px;
-  padding-left: 16px;
+  padding-right: 16px;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -96,7 +96,24 @@ main {
 }
 @media (min-width: 768px) {
   .navbar {
-    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.log-in-button {
+  font-size: 14px;
+  font-weight: bold;
+  color: #202020;
+  margin-left: 16px;
+}
+@media (min-width: 768px) {
+  .log-in-button {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .log-in-button {
+    margin-left: 24px;
   }
 }
 
@@ -269,15 +286,23 @@ section {
 }
 
 .feature {
-  background: linear-gradient(346deg, #673dff 30%, #4e25e4 100%);
+  background: linear-gradient(346deg, #d18067 10%, #673dff 100%);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  will-change: opacity, transform;
 }
 @media (min-width: 768px) {
   .feature {
     padding: 32px;
   }
+}
+.feature.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .feature h3 {
@@ -414,7 +439,7 @@ form {
     max-width: 90%;
   }
   .app-features-summary {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* not stacked anymore, they're responsive columns in number */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* not stacked anymore, they're responsive columns in number */
     max-width: 1200px; /* limits the container width */
   }
   .picture-and-form-container {
