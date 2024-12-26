@@ -13,7 +13,7 @@
 /* Typography and text styles */
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  background-color: #f6f3f2;
+  background-color: rgb(246, 243, 242);
 }
 
 ul {
@@ -56,7 +56,7 @@ h3 {
 p {
   font-size: 16px;
   font-weight: normal;
-  color: #666666;
+  color: #575757;
 }
 @media (min-width: 768px) {
   p {
@@ -81,11 +81,12 @@ main {
 
 #sign-up-header {
   margin-top: 68px;
+  justify-self: center;
 }
 
 /* Navigation Bar */
 .navbar {
-  background: #f6f3f2;
+  background: rgb(246, 243, 242);
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -100,21 +101,43 @@ main {
   }
 }
 
-.log-in-button {
-  font-size: 14px;
-  font-weight: bold;
-  color: #202020;
-  margin-left: 16px;
+.auth-button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #4e25e4;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-@media (min-width: 768px) {
-  .log-in-button {
-    font-size: 16px;
-  }
+.auth-button:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
 }
-@media (min-width: 768px) {
-  .log-in-button {
-    margin-left: 24px;
-  }
+.auth-button:focus {
+  outline: 2px solid rgba(51, 51, 51, 0);
+  transform: scale(1.03);
+}
+.auth-button--primary {
+  border: none;
+  cursor: pointer;
+  background: #4e25e4;
+  color: rgb(246, 243, 242);
+  font-size: 16px;
+  border-radius: 24px;
+  padding: 8px 32px;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.auth-button--primary:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+.auth-button--primary:focus {
+  outline: 2px solid rgb(151.6897959184, 127.7591836735, 239.2408163265);
+  transform: scale(1.03);
 }
 
 /* spacing sections */
@@ -172,7 +195,7 @@ section {
 .CTAbutton--primary {
   border: none;
   cursor: pointer;
-  background: #d18067;
+  background: #be6e56;
   color: #fff;
   font-size: 20px;
   border-radius: 32px;
@@ -185,7 +208,7 @@ section {
   transform: scale(1.03);
 }
 .CTAbutton--primary:focus {
-  outline: 2px solid rgb(232.696969697, 193.4242424242, 181.303030303);
+  outline: 2px solid rgb(218.3333333333, 173.2051282051, 159.6666666667);
   transform: scale(1.03);
 }
 .CTAbutton--secondary {
@@ -230,15 +253,28 @@ section {
 }
 
 .image-container {
-  width: 300px; /* Set the width of the container */
-  perspective: 1000px; /* Adds depth to the transformation */
+  width: 300px;
+  perspective: 1000px;
 }
 
+@keyframes subtleTilt {
+  0% {
+    transform: rotateY(15deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(17deg) rotateX(2deg);
+  }
+  100% {
+    transform: rotateY(15deg) rotateX(0deg);
+  }
+}
 .app-illustration {
-  width: 100%; /* Makes the image responsive */
-  transform: rotateY(15deg); /* Rotate on the Y-axis to simulate a side view */
-  transform-origin: center; /* Set the pivot point to the center */
-  transition: transform 0.3s ease-in-out; /* Smooth transition when hover is applied (optional) */
+  width: 100%;
+  transform-origin: center;
+  animation: subtleTilt 3s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .text-and-app-buttons {
@@ -286,7 +322,7 @@ section {
 }
 
 .feature {
-  background: linear-gradient(346deg, #d18067 10%, #673dff 100%);
+  background: linear-gradient(346deg, #be6e56 10%, #673dff 100%);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3);
@@ -307,7 +343,7 @@ section {
 
 .feature h3 {
   margin-bottom: 16px;
-  color: #f6f3f2;
+  color: rgb(246, 243, 242);
 }
 @media (min-width: 768px) {
   .feature h3 {
@@ -316,7 +352,7 @@ section {
 }
 
 .feature p {
-  color: #f6f3f2;
+  color: rgb(246, 243, 242);
 }
 
 .general-text-section {
@@ -336,7 +372,49 @@ section {
   }
 }
 
-/* styling the forms: log in page, sign up and contact us pages */
+@keyframes slideAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.about-us h2 {
+  animation: slideAndFade 1s ease-out forwards;
+  opacity: 0;
+}
+
+.about-us h2:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.about-us h2:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.about-us h2:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+.about-us h2:nth-of-type(4) {
+  animation-delay: 0.8s;
+}
+
+.about-us li {
+  font-size: 16px;
+  font-weight: bold;
+  color: #be6e56;
+}
+@media (min-width: 768px) {
+  .about-us li {
+    font-size: 18px;
+  }
+}
+
+/* Styling the forms in the Log in, Sign up and Contact us pages */
 form {
   display: flex;
   flex-direction: column;
@@ -360,6 +438,7 @@ form {
 .picture-login-signup {
   max-width: 95%;
   height: auto;
+  border-radius: 8px;
 }
 
 /* placing elements in the footer with a grid */
@@ -367,7 +446,7 @@ form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
   gap: 32px;
-  margin: 32px;
+  margin: 40px;
   align-items: end;
   padding: 0; /* removing default padding */
 }
@@ -378,14 +457,14 @@ form {
 }
 @media (min-width: 768px) {
   .footer-links-container {
-    margin: 40px;
+    margin: 48px;
   }
 }
 
 .footer-link {
   font-size: 16px;
   font-weight: normal;
-  color: #666666;
+  color: #575757;
   text-decoration: none;
 }
 @media (min-width: 768px) {

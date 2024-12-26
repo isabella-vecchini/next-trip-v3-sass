@@ -45,6 +45,7 @@ main {
 
 #sign-up-header {
     margin-top: 68px; //sign up is the only page where the h1 is out of the main section 
+    justify-self: center;
 }
 
 
@@ -55,9 +56,12 @@ main {
     @include responsive-spacing(small, padding-right);
 }
 
-.log-in-button {
-    @include responsive-typography (small, bold, $dark-grey);
-    @include responsive-spacing(small, margin-left);
+.auth-button {
+  @include button (transparent, $secondary);
+
+    &--primary {
+      @include button ($secondary, $primary-light, 8px 32px, 24px);
+    }
 }
 
 /* spacing sections */
@@ -100,19 +104,34 @@ section {
   @include responsive-spacing(small, padding);
 }
 
-
+// App illustration: resizing and adding animation and perspective
 .image-container {
-    width: 300px; /* Set the width of the container */
-    perspective: 1000px; /* Adds depth to the transformation */
-  }
-  
-.app-illustration {
-    width: 100%; /* Makes the image responsive */
-    transform: rotateY(15deg); /* Rotate on the Y-axis to simulate a side view */
-    transform-origin: center; /* Set the pivot point to the center */
-    transition: transform 0.3s ease-in-out; /* Smooth transition when hover is applied (optional) */
+  width: 300px;
+  perspective: 1000px;
 }
 
+@keyframes subtleTilt {
+  0% {
+      transform: rotateY(15deg) rotateX(0deg);
+  }
+  50% {
+      transform: rotateY(17deg) rotateX(2deg);
+  }
+  100% {
+      transform: rotateY(15deg) rotateX(0deg);
+  }
+}
+
+.app-illustration {
+  width: 100%;
+  transform-origin: center;
+  animation: subtleTilt 3s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+//Buttons and text next to the app illustration
 .text-and-app-buttons {
   max-width: 400px;
 }
@@ -126,6 +145,7 @@ section {
     height: auto;
     @include responsive-spacing(xs, margin); /* adds spacing around buttons */
 }
+
 
 /* placing elements in the app features section with a grid (stacked) */
 
@@ -172,9 +192,49 @@ section {
     }
 }
 
-/* styling the forms: log in page, sign up and contact us pages */
+
+//About us page: adding animations to the headings
+@keyframes slideAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+//Subheading animations with sequential delays
+.about-us h2 {
+  animation: slideAndFade 1s ease-out forwards;
+  opacity: 0; //stats invisible
+}
+
+//Adding sequential delays to each h2
+.about-us h2:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.about-us h2:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.about-us h2:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+.about-us h2:nth-of-type(4) {
+  animation-delay: 0.8s;
+}
+
+.about-us li {
+  @include responsive-typography (body, bold, $primary)
+}
 
 
+/* Styling the forms in the Log in, Sign up and Contact us pages */
 form {
     display: flex;
     flex-direction: column;
@@ -188,6 +248,7 @@ form {
 .picture-login-signup {
     max-width: 95%;
     height: auto;
+    border-radius: 8px;
 }
 
 /* placing elements in the footer with a grid */
@@ -195,7 +256,7 @@ form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* creating responsive number of columns of min 140px wide and max full screen */
   @include responsive-spacing(large, gap);
-  @include responsive-spacing (large, margin);
+  @include responsive-spacing (xl, margin);
   align-items: end;
   padding: 0; /* removing default padding */
 }
